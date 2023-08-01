@@ -1,0 +1,50 @@
+{
+  "workingHours": [
+    { "time": "08:00 AM", "isChecked": false },
+    { "time": "08:30 AM", "isChecked": false },
+    { "time": "09:00 AM", "isChecked": false },
+    { "time": "09:30 AM", "isChecked": false },
+    { "time": "10:00 AM", "isChecked": false },
+    { "time": "10:30 AM", "isChecked": false },
+    { "time": "11:00 AM", "isChecked": false },
+    { "time": "11:30 AM", "isChecked": false },
+    { "time": "12:00 PM", "isChecked": false },
+    { "time": "12:30 PM", "isChecked": false },
+    { "time": "01:00 PM", "isChecked": false },
+    { "time": "01:30 PM", "isChecked": false },
+    { "time": "02:00 PM", "isChecked": false },
+    { "time": "02:30 PM", "isChecked": false },
+    { "time": "03:00 PM", "isChecked": false },
+    { "time": "03:30 PM", "isChecked": false },
+    { "time": "04:00 PM", "isChecked": false },
+    { "time": "04:30 PM", "isChecked": false },
+    { "time": "05:00 PM", "isChecked": false },
+    { "time": "05:30 PM", "isChecked": false },
+    { "time": "06:00 PM", "isChecked": false },
+    { "time": "06:30 PM", "isChecked": false },
+    { "time": "07:00 PM", "isChecked": false },
+    { "time": "07:30 PM", "isChecked": false },
+    { "time": "08:00 PM", "isChecked": false },
+    { "time": "08:30 PM", "isChecked": false },
+    { "time": "09:00 PM", "isChecked": false },
+    { "time": "09:30 PM", "isChecked": false },
+    { "time": "10:00 PM", "isChecked": false },
+    { "time": "10:30 PM", "isChecked": false },
+    { "time": "11:00 PM", "isChecked": false }
+  ],
+  "workingDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  "checkedDetails": [
+    {
+      "Id": 101,
+      "Name": "test",
+      "Date": "2023-07-20",
+      "Time": "22:30"
+    },
+    {
+      "Id": 102,
+      "Name": "test 1",
+      "Date": "2023-07-21",
+      "Time": "09:00"
+    }
+  ]
+}
