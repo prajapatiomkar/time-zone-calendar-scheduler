@@ -39,47 +39,43 @@ export default function WeeklyWorkingDays({
       {workingDays &&
         workingDays.map((day, index) => {
           const date = moment(selectedDate).day(index + 1);
-          // console.log(date);
+
+          // Find the dataItem corresponding to the current date
           const dataItem = checkedDetails.find(
             (item) => item.Date === date.format("YYYY-MM-DD")
           );
 
-          const today = moment();
-          const _day = today.clone().day(index + 1);
-          // const isCurrentDay = today.isSame(_day, "day");
-          // const isPastDay = today.isAfter(_day, "day");
-
           return (
             <div key={index} className="flex gap-2 my-2">
-              {/* left section */}
-              <div className=" w-24 ">
-                <div className="">{day}</div>
-                <div className="">{date.format("MM/DD")}</div>
-              </div>
-              {/* right section */}
+              {/* ... (unchanged) */}
               <div className=" w-4/5 ">
                 {workingHours &&
-                  workingHours.map((hour, index) => (
-                    <div className=" inline-block mx-2 ">
-                      <input
-                        key={index}
-                        type="checkbox"
-                        id={index}
-                        name={hour.time}
-                        value={hour.time}
-                      />
-                      <label htmlFor="">{hour.time}</label>
-                    </div>
-                  ))}
-                {/* {isCurrentDay ? (
-                  <>
-                    <input type="checkbox" value="11:40 Am"></input>
-                  </>
-                ) : isPastDay ? (
-                  <span>Past</span>
-                ) : (
-                  <input type="checkbox" value="11:40 Am"></input>
-                )} */}
+                  workingHours.map((hour, index) => {
+                    const time = hour.time;
+
+                    // Check if the checkbox should be checked based on dataItem's Time
+                    const isChecked = dataItem && dataItem.Time === time;
+
+                    return (
+                      <div className=" inline-block mx-2 w-[100px]" key={index}>
+                        <input
+                          checked={isChecked}
+                          type="checkbox"
+                          id={index}
+                          name={hour.time}
+                          value={hour.time}
+                          onChange={() => {
+                            // You can implement your checkbox change handling here
+                            // This function will be called when the checkbox is clicked
+                            // You can update the `checkedDetails` state based on the checkbox changes
+                          }}
+                        />
+                        <label htmlFor="" className="pl-1">
+                          {hour.time}
+                        </label>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           );
