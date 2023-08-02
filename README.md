@@ -11,3 +11,4 @@
     npm install
 ### 4) Run the project
     npm run dev
+### Go to the URL http://localhost:3000/ 🎉
