@@ -20,7 +20,7 @@ export default function DateSelector({ selectedDate, onDateChange }) {
         <AiOutlineArrowLeft />
         Previous Week
       </button>
-      <p>{moment(selectedDate).format("ll")}</p>
+      <p className=" text-lg ">{moment(selectedDate).format("ll")}</p>
 
       <button onClick={handleNextWeek} className="flex items-center gap-1">
         Next Week

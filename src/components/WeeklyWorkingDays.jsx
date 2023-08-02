@@ -48,8 +48,8 @@ export default function WeeklyWorkingDays({
           );
 
           return (
-            <div key={index} className="flex gap-2 my-2">
-              <div className="w-24">
+            <div key={index} className="flex gap-2 pt-2 pb-1 pl-2 border-b last:border-none items-center ">
+              <div className="w-[120px]">
                 <div>{day}</div>
                 <div>{date.format("MM/DD")}</div>
               </div>
