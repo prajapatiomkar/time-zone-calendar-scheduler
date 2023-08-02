@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 
 export default function WeeklyWorkingDays({
@@ -7,17 +6,21 @@ export default function WeeklyWorkingDays({
   selectedTimezone,
   jsonData,
 }) {
+  console.log(selectedDate);
   const { checkedDetails, workingHours, workingDays } = jsonData;
 
   const getTimezoneOffset = () => {
-    return moment(selectedTimezone).utcOffset() / 60;
+    const offsetString = selectedTimezone.substring(3); // Extract the offset part (e.g., "05:30", "-5", "-4")
+    const [hours, minutes] = offsetString.split(":");
+    const offset = parseInt(hours, 10) * 60 + parseInt(minutes, 10);
+    return offset;
   };
 
   const convertTime = (time, offset) => {
     const [hours, minutes] = time.split(" ")[0].split(":");
     let isPM = time.includes("PM");
 
-    let convertedHours = parseInt(hours) + offset;
+    let convertedHours = parseInt(hours) + offset / 60;
     if (convertedHours >= 12) {
       isPM = !isPM;
     }
@@ -46,19 +49,22 @@ export default function WeeklyWorkingDays({
 
           return (
             <div key={index} className="flex gap-2 my-2">
-              <div className=" w-24 ">
-                <div className="">{day}</div>
-                <div className="">{date.format("MM/DD")}</div>
+              <div className="w-24">
+                <div>{day}</div>
+                <div>{date.format("MM/DD")}</div>
               </div>
-              <div className=" w-4/5 ">
+              <div className="w-4/5">
                 {workingHours &&
                   workingHours.map((hour, index) => {
                     const time = hour.time;
 
+                    const offset = getTimezoneOffset();
+                    const convertedTime = convertTime(time, offset);
+                    console.log(`convertedTime= ${convertedTime} time= ${time} offset= ${offset} `);
                     const isChecked = dataItem && dataItem.Time === time;
 
                     return (
-                      <div className=" inline-block mx-2 w-[100px]" key={index}>
+                      <div className="inline-block mx-2 w-[100px]" key={index}>
                         <input
                           checked={isChecked}
                           type="checkbox"
@@ -67,7 +73,7 @@ export default function WeeklyWorkingDays({
                           value={hour.time}
                         />
                         <label htmlFor="" className="pl-1">
-                          {hour.time}
+                          {convertedTime}
                         </label>
                       </div>
                     );

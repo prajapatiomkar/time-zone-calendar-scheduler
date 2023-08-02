@@ -18,14 +18,14 @@ export default function TimezoneSelector({
         className=" w-full p-2 border"
         onChange={handleTimezoneChange}
       >
-        <option className="p-6" value="UTC+05:30">
+        <option className="p-6" value="UTC+00:00">
           [UTC+05:30] Indian Standard Time
         </option>
-        <option className="p-6" value="UTC-5">
-          [UTC-5] Eastern Standard Time
+        <option className="p-6" value="UTC-05:00">
+          [UTC-05:00] Eastern Standard Time
         </option>
-        <option className="p-6" value="UTC-4">
-          [UTC-4] Atlantic Standard Time
+        <option className="p-6" value="UTC-04:00">
+          [UTC-04:00] Atlantic Standard Time
         </option>
       </select>
     </div>

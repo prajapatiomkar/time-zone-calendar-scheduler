@@ -7,7 +7,7 @@ import data from "../data.json";
 
 export default function App() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTimezone, setSelectedTimezone] = useState("UTC-0");
+  const [selectedTimezone, setSelectedTimezone] = useState("UTC+00:00");
   const [jsonData, setJsonData] = useState([]);
 
   useEffect(() => {
